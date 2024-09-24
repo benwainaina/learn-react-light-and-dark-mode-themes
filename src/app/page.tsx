@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import "./page.module.scss";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";

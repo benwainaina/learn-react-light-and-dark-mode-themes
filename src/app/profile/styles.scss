@@ -1,0 +1,18 @@
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 54px;
+
+  &.dark {
+    color: white;
+    img {
+      border-radius: 350px;
+    }
+  }
+
+  img {
+    aspect-ratio: 1;
+  }
+}
