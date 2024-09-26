@@ -6,12 +6,25 @@ import "./app.scss";
 import { Provider } from "react-redux";
 import { STORE } from "./state-manager/store";
 import { HeaderSharedComponent } from "./shared/header/header.shared";
+import { useEffect, useState } from "react";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  /**
+   * states
+   */
+  const [showContent, setShowContent] = useState<boolean>(false);
+
+  /**
+   * effects
+   */
+  useEffect(() => {
+    setShowContent(true);
+  }, []);
+
   return (
     <Provider store={STORE}>
       <html lang="en">
@@ -23,12 +36,14 @@ export default function RootLayout({
             rel="stylesheet"
           ></link>
         </head>
-        <body className="body-wrapper light">
-          <HeaderSharedComponent />
-          <div className="content">
-            <div className="content__inner">{children}</div>
-          </div>
-        </body>
+        {showContent && (
+          <body className="body-wrapper light">
+            <HeaderSharedComponent />
+            <div className="content">
+              <div className="content__inner">{children}</div>
+            </div>
+          </body>
+        )}
       </html>
     </Provider>
   );
