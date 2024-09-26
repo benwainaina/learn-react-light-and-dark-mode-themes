@@ -1,10 +1,29 @@
+"use client";
+
+import { useSelector } from "react-redux";
 import "./styles.scss";
+import { selectCurrentMode } from "../state-manager/selectors";
+import { useEffect, useState } from "react";
+import { IAppThemeMode } from "../state-manager/interfaces";
 
 export default function Home() {
   /**
    * selectors
    */
-  const mode = "light";
+  const currentMode = useSelector(selectCurrentMode);
+
+  /**
+   * states
+   */
+  const [mode, setMode] = useState<IAppThemeMode>("light");
+
+  /**
+   * effects
+   */
+  useEffect(() => {
+    setMode(currentMode);
+  }, [currentMode]);
+
   return (
     <div className={`wrapper ${mode}`}>
       <h1 className="poppins-bold">Home</h1>
