@@ -44,7 +44,7 @@ export const HeaderSharedComponent = () => {
           mode,
           currentMode
         );
-        document.body.className = newClassName;
+        bodyContentWrapper.className = newClassName;
         setMode(currentMode);
       }
     }
