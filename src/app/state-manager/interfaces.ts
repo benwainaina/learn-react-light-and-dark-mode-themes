@@ -1,4 +1,4 @@
-export type IAppThemeMode = "light" | "dark";
+export type IAppThemeMode = "light" | "dark" | "pink" | "purple";
 
 export interface IAppStore {
   /**
