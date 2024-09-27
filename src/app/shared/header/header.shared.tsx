@@ -8,7 +8,6 @@ import "./header.styles.scss";
 import { IAppThemeMode } from "@/app/state-manager/interfaces";
 import { setCurrentMode } from "@/app/state-manager/slice";
 import { useEffect, useState } from "react";
-import { current } from "@reduxjs/toolkit";
 
 export const HeaderSharedComponent = () => {
   /**
