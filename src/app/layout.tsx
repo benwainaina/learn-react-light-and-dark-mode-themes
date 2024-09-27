@@ -6,7 +6,6 @@ import "./app.scss";
 import { Provider } from "react-redux";
 import { STORE, STORE_PERSISTOR } from "./state-manager/store";
 import { HeaderSharedComponent } from "./shared/header/header.shared";
-import { useEffect, useState } from "react";
 import { PersistGate } from "redux-persist/integration/react";
 
 export default function RootLayout({
@@ -14,18 +13,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  /**
-   * states
-   */
-  const [showContent, setShowContent] = useState<boolean>(false);
-
-  /**
-   * effects
-   */
-  useEffect(() => {
-    setShowContent(true);
-  }, []);
-
   return (
     <html lang="en">
       <head>
@@ -39,14 +26,12 @@ export default function RootLayout({
       <body>
         <Provider store={STORE}>
           <PersistGate loading={null} persistor={STORE_PERSISTOR}>
-            {showContent && (
-              <div id="bodyContentWrapper" className="light">
-                <HeaderSharedComponent />
-                <div className="content">
-                  <div className="content__inner">{children}</div>
-                </div>
+            <div id="bodyContentWrapper" className="light">
+              <HeaderSharedComponent />
+              <div className="content">
+                <div className="content__inner">{children}</div>
               </div>
-            )}
+            </div>
           </PersistGate>
         </Provider>
       </body>

@@ -2,7 +2,7 @@
  * This is the main entry point for the state manager
  */
 
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 
 import {
@@ -19,10 +19,6 @@ import { appReducer } from "./slice";
 import hardSet from "redux-persist/es/stateReconciler/hardSet";
 
 export const STORE = configureStore({
-  /**
-   * The root reducer for the application, which will be hooked into
-   * redux persist using persistReducer
-   */
   reducer: persistReducer(
     {
       key: "root",
