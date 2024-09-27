@@ -29,7 +29,6 @@ export const STORE = configureStore({
       storage,
       stateReconciler: hardSet,
     },
-
     appReducer
   ),
   middleware: (getDefaultMiddleware) =>
