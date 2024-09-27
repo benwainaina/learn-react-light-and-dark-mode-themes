@@ -36,14 +36,16 @@ export default function RootLayout({
             rel="stylesheet"
           ></link>
         </head>
-        {showContent && (
-          <body className="body-wrapper light">
-            <HeaderSharedComponent />
-            <div className="content">
-              <div className="content__inner">{children}</div>
+        <body>
+          {showContent && (
+            <div id="bodyContentWrapper" className="light">
+              <HeaderSharedComponent />
+              <div className="content">
+                <div className="content__inner">{children}</div>
+              </div>
             </div>
-          </body>
-        )}
+          )}
+        </body>
       </html>
     </Provider>
   );

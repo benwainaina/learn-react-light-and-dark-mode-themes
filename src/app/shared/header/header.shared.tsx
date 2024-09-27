@@ -38,10 +38,15 @@ export const HeaderSharedComponent = () => {
    */
   useEffect(() => {
     if (mode !== currentMode) {
-      const { className } = document.body;
-      const newClassName = className.replace(mode, currentMode);
-      document.body.className = newClassName;
-      setMode(currentMode);
+      const bodyContentWrapper = document.getElementById("bodyContentWrapper");
+      if (bodyContentWrapper) {
+        const newClassName = bodyContentWrapper.className.replace(
+          mode,
+          currentMode
+        );
+        document.body.className = newClassName;
+        setMode(currentMode);
+      }
     }
   }, [currentMode, mode]);
 
